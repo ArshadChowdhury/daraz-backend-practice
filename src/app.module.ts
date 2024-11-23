@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './users/users.module';
 import { ProductsModule } from './products/tweet.module';
+import { CoffeesController } from './coffees/coffees.controller';
 
 ConfigModule.forRoot({
   envFilePath: '.env.local',
@@ -11,7 +12,7 @@ ConfigModule.forRoot({
 
 @Module({
   imports: [ConfigModule.forRoot(), UserModule, ProductsModule],
-  controllers: [AppController],
+  controllers: [AppController, CoffeesController],
   providers: [AppService],
 })
 export class AppModule {}
