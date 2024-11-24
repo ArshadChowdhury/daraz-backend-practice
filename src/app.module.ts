@@ -4,16 +4,15 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './users/users.module';
 import { ProductsModule } from './products/tweet.module';
-import { CoffeesController } from './coffees/coffees.controller';
-import { CoffeesService } from './coffees/coffees.service';
+import { CoffeesModule } from './coffees/coffees.module';
 
 ConfigModule.forRoot({
   envFilePath: '.env.local',
 });
 
 @Module({
-  imports: [ConfigModule.forRoot(), UserModule, ProductsModule],
-  controllers: [AppController, CoffeesController],
-  providers: [AppService, CoffeesService],
+  imports: [ConfigModule.forRoot(), UserModule, ProductsModule, CoffeesModule],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
