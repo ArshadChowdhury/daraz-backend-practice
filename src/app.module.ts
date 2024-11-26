@@ -23,7 +23,7 @@ ConfigModule.forRoot({
       port: 5432,
       username: 'postgres',
       password: 'arshad',
-      database: 'postgres',
+      database: 'darazclone',
       autoLoadEntities: true,
       synchronize: true,
     }),
