@@ -2,18 +2,19 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
-import { UserModule } from './users/users.module';
+import { UsersModule } from './users/users.module';
 import { ProductsModule } from './products/products.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
-ConfigModule.forRoot({
-  envFilePath: '.env.local',
-});
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
-    UserModule,
+    ConfigModule.forRoot({
+      envFilePath: '.env.local', // Specify your custom environment file path
+      isGlobal: true, // Make ConfigModule global
+    }),
+    UsersModule,
+    AuthModule,
     ProductsModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
