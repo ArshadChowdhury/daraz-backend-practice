@@ -1,14 +1,14 @@
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Coffee } from './coffee.entity';
+import { Product } from './product.entity';
 
 @Entity()
-export class Flavor {
+export class Size {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   name: string;
 
-  @ManyToMany((type) => Coffee, (coffee) => coffee.flavors)
-  coffees: Coffee[];
+  @ManyToMany((type) => Product, (product) => product.sizes)
+  products: Product[];
 }

@@ -3,8 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './users/users.module';
-import { ProductsModule } from './products/tweet.module';
-import { CoffeesModule } from './coffees/coffees.module';
+import { ProductsModule } from './products/products.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 ConfigModule.forRoot({
@@ -16,7 +15,6 @@ ConfigModule.forRoot({
     ConfigModule.forRoot(),
     UserModule,
     ProductsModule,
-    CoffeesModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
