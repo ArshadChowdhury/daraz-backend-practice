@@ -3,13 +3,13 @@ import { AuthService } from './auth.service';
 import { UsersModule } from 'src/users/users.module';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthController } from './auth.controller';
-// import { AuthGuard } from './auth.guard';
-// import { APP_GUARD } from '@nestjs/core';
+import { AuthGuard } from './auth.guard';
+import { APP_GUARD } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
 
-ConfigModule.forRoot({
-  envFilePath: '.env.local',
-});
+// ConfigModule.forRoot({
+//   envFilePath: '.env.local',
+// });
 
 @Module({
   imports: [
@@ -22,10 +22,10 @@ ConfigModule.forRoot({
     }),
   ],
   providers: [
-    // {
-    //   provide: APP_GUARD,
-    //   useClass: AuthGuard,
-    // },
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
     AuthService,
   ],
   controllers: [AuthController],
