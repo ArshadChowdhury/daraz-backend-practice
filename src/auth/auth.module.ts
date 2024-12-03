@@ -7,10 +7,6 @@ import { AuthGuard } from './auth.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
 
-// ConfigModule.forRoot({
-//   envFilePath: '.env.local',
-// });
-
 @Module({
   imports: [
     ConfigModule.forRoot(),
